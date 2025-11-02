@@ -1,0 +1,12 @@
+{
+  "name": "miel-pura-vercel",
+  "version": "1.0.0",
+  "description": "Backend serverless para la tienda de miel en Vercel.",
+  "main": "api/create-checkout-session.js",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "stripe": "^16.2.3" 
+  }
+}

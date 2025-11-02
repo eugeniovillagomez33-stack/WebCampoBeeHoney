@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miel Pura Natural | De la Colmena a tu Mesa</title>
+    <meta name="description" content="Venta de miel pura y natural de producción artesanal. Miel multifloral, romero, eucalipto, azahar y bosque. ¡Sabor auténtico garantizado!">
+    <meta name="keywords" content="miel, miel pura, miel natural, miel artesanal, multifloral, romero, eucalipto, azahar, bosque, apicultura, productos naturales">
+    
+    <style>
+        /* Variables CSS para colores cálidos */
+        :root {
+            --color-miel-oscuro: #b8860b; /* Goldenrod/Miel Oscuro */
+            --color-miel-claro: #ffc72c; /* Tono de miel más claro */
+            --color-blanco: #ffffff;
+            --color-marron-claro: #f5f5dc; /* Beige */
+            --color-marron-oscuro: #5c4033; /* Marrón para texto */
+        }
+
+        /* Estilos Generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-marron-claro);
+            color: var(--color-marron-oscuro);
+            line-height: 1.6;
+        }
+
+        /* Encabezado (Header) */
+        header {
+            background-color: var(--color-miel-oscuro);
+            color: var(--color-blanco);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: var(--color-blanco);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-miel-claro);
+        }
+
+        /* Contenedor principal */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Sección de Bienvenida/Hero */
+        #bienvenida {
+            text-align: center;
+            padding: 40px 0;
+            background-color: var(--color-blanco);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        #bienvenida img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #bienvenida h2 {
+            color: var(--color-miel-oscuro);
+            font-size: 2em;
+            margin-top: 20px;
+        }
+
+        /* Catálogo de Productos */
+        #catalogo h2, #sobre-nosotros h2, #contacto h2 {
+            text-align: center;
+            color: var(--color-miel-oscuro);
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--color-miel-claro);
+            display: inline-block;
+            padding-bottom: 5px;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            display: block; /* Para centrar el inline-block */
+        }
+
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .producto-card {
+            background-color: var(--color-blanco);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .producto-card img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .producto-card h3 {
+            color: var(--color-miel-oscuro);
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        .producto-card .precio {
+            font-size: 1.3em;
+            color: var(--color-marron-oscuro);
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .btn-carrito {
+            background-color: var(--color-miel-oscuro);
+            color: var(--color-blanco);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .btn-carrito:hover {
+            background-color: #d4a017; /* Tono más claro al pasar el ratón */
+        }
+        
+        /* Carrito de Compras */
+        #carrito {
+            background-color: var(--color-blanco);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #carrito-lista {
+            list-style: none;
+            padding: 0;
+        }
+
+        #carrito-lista li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--color-marron-claro);
+        }
+
+        #carrito-lista li:last-child {
+            border-bottom: none;
+        }
+
+        .btn-eliminar {
+            background-color: #e74c3c; /* Rojo para eliminar */
+            color: var(--color-blanco);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8em;
+        }
+
+        #carrito-total {
+            text-align: right;
+            margin-top: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--color-miel-oscuro);
+        }
+
+        /* Sobre Nosotros */
+        #sobre-nosotros p {
+            text-align: center;
+            font-size: 1.1em;
+            background-color: var(--color-blanco);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Contacto */
+        #contacto-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: var(--color-blanco);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        #contacto-info div {
+            display: flex;
+            align-items: center;
+        }
+
+        #contacto-info a {
+            color: var(--color-marron-oscuro);
+            text-decoration: none;
+            margin-left: 10px;
+            transition: color 0.3s;
+        }
+
+        #contacto-info a:hover {
+            color: var(--color-miel-oscuro);
+        }
+
+        .icon {
+            font-size: 1.5em;
+            color: var(--color-miel-oscuro);
+            width: 30px;
+        }
+        
+        /* Redes Sociales (usando un icono simple) */
+        .social-links a {
+            margin-right: 15px;
+            font-size: 2em; /* Tamaño grande para los íconos */
+            text-decoration: none;
+            color: var(--color-marron-oscuro);
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--color-miel-oscuro);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-miel-oscuro);
+            color: var(--color-blanco);
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 50px;
+            font-size: 0.9em;
+        }
+
+        /* Media Queries para Responsividad (Móvil) */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .productos-grid {
+                grid-template-columns: 1fr; /* Una columna en móviles */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactDiv = document.getElementById('contacto-info');
+            const socialDiv = document.querySelector('.social-links');
+
+            // Simulación de íconos para Contacto
+            contactDiv.innerHTML = `
+                <div><span class="icon">📞</span><a href="https://api.whatsapp.com/send?phone=5218135802587" target="_blank">📞 +52 1 81 3580 2587</a></div>
+                <div><span class="icon">📧</span><a href="mailto:campobeehoney@gmail.com">campobeehoney@gmail.com</a></div>
+            `;
+            
+            // Simulación de íconos para Redes Sociales
+            socialDiv.innerHTML = `
+                <a href="https://www.instagram.com/campobeehoney_/" target="_blank" title="Instagram">📸</a>
+                <a href="https://www.facebook.com/people/Campo-Bee-Honey/61581923557708/" target="_blank" title="Facebook">📘</a>
+                <a href="https://www.tiktok.com/@campo.bee.honey?_r=1&_t=ZS-913ZHidlBB6" target="_blank" title="TikTok">🎶</a>
+            `;
+        });
+    </script>
+    
+    <script>
+        // Array para almacenar los productos en el carrito
+        let carrito = [];
+
+        // Función para renderizar el carrito
+        function renderCarrito() {
+            const listaCarrito = document.getElementById('carrito-lista');
+            const totalCarrito = document.getElementById('carrito-total');
+            let total = 0;
+            
+            listaCarrito.innerHTML = ''; // Limpiar la lista actual
+
+            if (carrito.length === 0) {
+                listaCarrito.innerHTML = '<li>El carrito está vacío.</li>';
+                totalCarrito.textContent = 'Total: $0.00';
+                return;
+            }
+
+            carrito.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span>${item.nombre} (${item.cantidad}x)</span>
+                    <span>$${(item.precio * item.cantidad).toFixed(2)}</span>
+                    <button class="btn-eliminar" onclick="eliminarDelCarrito(${index})">Eliminar</button>
+                `;
+                listaCarrito.appendChild(li);
+                total += item.precio * item.cantidad;
+            });
+
+            totalCarrito.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Función para agregar un producto al carrito
+        function agregarAlCarrito(nombre, precio) {
+            const productoExistente = carrito.find(item => item.nombre === nombre);
+
+            if (productoExistente) {
+                productoExistente.cantidad += 1;
+            } else {
+                carrito.push({ nombre, precio, cantidad: 1 });
+            }
+
+            renderCarrito();
+            alert(`"${nombre}" añadido al carrito.`);
+        }
+
+        // Función para eliminar un producto del carrito
+        function eliminarDelCarrito(index) {
+            const item = carrito[index];
+            if (item.cantidad > 1) {
+                item.cantidad -= 1;
+            } else {
+                carrito.splice(index, 1); // Eliminar el producto si solo queda 1
+            }
+            renderCarrito();
+        }
+
+        // Inicializar el carrito al cargar la página
+        document.addEventListener('DOMContentLoaded', renderCarrito);
+    </script>
+
+    <header>
+        <div class="container">
+            <h1>Miel Pura Natural</h1>
+            <nav>
+                <a href="#bienvenida">Inicio</a>
+                <a href="#catalogo">Catálogo</a>
+                <a href="#sobre-nosotros">Sobre Nosotros</a>
+                <a href="#contacto">Contacto</a>
+                <a href="#carrito">🛒 Carrito</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="bienvenida">
+            <img src="images/miel1.jpg" alt="Tarros de miel pura en un ambiente natural" onerror="this.onerror=null; this.src='https://via.placeholder.com/1200x400?text=Miel+Principal'">
+            <h2>Miel pura del campo a tu mesa</h2>
+        </section>
+
+        <section id="catalogo">
+            <h2>Nuestros Tipos de Miel 🍯</h2>
+            <div class="productos-grid">
+                
+                <div class="producto-card">
+                    <img src="images/miel2.jpg" alt="Miel Multifloral" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Miel+Multifloral'">
+                    <h3>Multifloral</h3>
+                    <p>Una mezcla equilibrada de néctar de diversas flores silvestres, ideal para el uso diario. Sabor suave y dulce.</p>
+                    <p class="precio">$15.00</p>
+                    <button class="btn-carrito" onclick="agregarAlCarrito('Miel Multifloral', 15.00)">Agregar al carrito</button>
+                </div>
+                
+                <div class="producto-card">
+                    <img src="images/miel3.jpg" alt="Miel de Romero" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Miel+Romero'">
+                    <h3>Romero</h3>
+                    <p>Miel clara con un aroma floral ligero y un sabor sutil a romero. Perfecta para infusiones y postres.</p>
+                    <p class="precio">$18.50</p>
+                    <button class="btn-carrito" onclick="agregarAlCarrito('Miel de Romero', 18.50)">Agregar al carrito</button>
+                </div>
+
+                <div class="producto-card">
+                    <img src="images/miel4.jpg" alt="Miel de Eucalipto" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Miel+Eucalipto'">
+                    <h3>Eucalipto</h3>
+                    <p>Sabor fuerte y balsámico, ideal para aliviar la garganta y resfriados. Tono ámbar oscuro.</p>
+                    <p class="precio">$16.00</p>
+                    <button class="btn-carrito" onclick="agregarAlCarrito('Miel de Eucalipto', 16.00)">Agregar al carrito</button>
+                </div>
+
+                <div class="producto-card">
+                    <img src="images/miel5.jpg" alt="Miel de Azahar" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Miel+Azahar'">
+                    <h3>Azahar</h3>
+                    <p>Miel de color muy claro y sabor floral delicado y cítrico. Propiedades relajantes y sedantes.</p>
+                    <p class="precio">$20.00</p>
+                    <button class="btn-carrito" onclick="agregarAlCarrito('Miel de Azahar', 20.00)">Agregar al carrito</button>
+                </div>
+                
+                <div class="producto-card">
+                    <img src="images/miel6.jpg" alt="Miel de Bosque" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Miel+Bosque'">
+                    <h3>Bosque</h3>
+                    <p>Miel de mielada, oscura y con un sabor intenso, notas a malta y saladas. Rica en minerales.</p>
+                    <p class="precio">$22.50</p>
+                    <button class="btn-carrito" onclick="agregarAlCarrito('Miel de Bosque', 22.50)">Agregar al carrito</button>
+                </div>
+
+            </div>
+            
+            <section id="carrito">
+                <h2>🛒 Tu Carrito de Compras</h2>
+                <ul id="carrito-lista">
+                    </ul>
+                <div id="carrito-total">
+                    </div>
+            </section>
+        </section>
+
+        <hr>
+
+        <section id="sobre-nosotros">
+            <h2>Sobre Nosotros 🐝</h2>
+            <p>En **Miel Pura Natural**, nos dedicamos a la apicultura artesanal y respetuosa con el medio ambiente. Nuestra miel es 100% natural, cruda y sin pasteurizar, conservando todas sus propiedades beneficiosas. Cosechada con amor y dedicación, llevamos la esencia pura del campo directamente a tu mesa, garantizando un producto de máxima calidad y sabor auténtico.</p>
+        </section>
+
+        <hr>
+
+        <section id="contacto">
+            <h2>Contacto 💬</h2>
+            <div id="contacto-info">
+                </div>
+            
+            <h3 style="text-align: center; color: var(--color-miel-oscuro); margin-top: 30px;">Síguenos</h3>
+            <div class="social-links" style="text-align: center;">
+                </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Miel Pura Natural. Todos los derechos reservados. | Hecho con 💛 desde el campo.</p>
+    </footer>
+
+</body>
+</html>
